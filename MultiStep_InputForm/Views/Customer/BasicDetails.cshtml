@@ -1,0 +1,24 @@
+﻿@model MultiStep_InputForm.Models.BasicDetails
+@{
+    ViewBag.Title = "BasicDetails";
+}
+
+
+
+@using (Html.BeginForm("BasicDetails", "Customer", FormMethod.Post))
+{
+    <h2>Step 1 : Basic Details</h2>
+    
+        <div class="form-group">
+            @Html.LabelFor(m => m.CustomerID)
+            @Html.TextBoxFor(m => m.CustomerID,new {@class="form-control" } )
+            @Html.ValidationMessageFor(m => m.CustomerID)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.CompanyName)
+            @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CompanyName)
+        </div>
+          
+        <input type="submit" name="nextBtn" value='Next'  class="btn btn-primary"/>
+}
